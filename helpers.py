@@ -7,7 +7,7 @@ def read_json(file_path: str) -> dict:
     
 def write_json(file_path: str, data: dict) -> None:
     with open(file_path, "w") as f:
-        json.dump(data, f)
+        json.dump(data, f, indent=4)
 
 import json
 

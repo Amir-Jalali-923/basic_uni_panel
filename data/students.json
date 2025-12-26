@@ -1,8 +1,28 @@
 {
-    "0": {
+    "1": {
         "name": "t1",
         "age": 18,
-        "phone": "09146993809",
-        "password": "123456789"
+        "phone": "111222333",
+        "password": "123456789",
+        "courses": []
+    },
+    "2": {
+        "name": "t2",
+        "age": 19,
+        "phone": "09146558712",
+        "password": "1234",
+        "courses": []
+    },
+    "3": {
+        "name": "t",
+        "age": 19,
+        "phone": "1",
+        "password": "1",
+        "courses": [
+            "chemistry",
+            "physics",
+            "math",
+            "english"
+        ]
     }
 }

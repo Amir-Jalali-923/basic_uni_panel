@@ -1,15 +1,41 @@
 import tkinter as tk
+from tkinter import messagebox
 from helpers import *
+from panel import panel
 
 def login_form(root):
     root.withdraw()
-    login_win = tk.Toplevel()
-    login_win.title("Login")
-    login_win.geometry("300x200")
+    win = tk.Toplevel()
+    win.title("Login")
+    win.geometry("300x200")
+    form = tk.Frame(win)
+    form.pack(expand=True)
 
-    tk.Label(login_win, text="Login Window").pack(expand=True)
+    tk.Label(form, text="ID:").grid(row=0, column=0, padx=10, pady=10)
+    s_id = tk.Entry(form)
+    s_id.grid(row=0, column=1)
 
-    login_win.protocol("WM_DELETE_WINDOW", lambda: get_root(login_win, root))
+    tk.Label(form, text="Password:").grid(row=1, column=0, padx=10, pady=10)
+    password = tk.Entry(form, show="*")
+    password.grid(row=1, column=1)
+
+    tk.Button(win, text="Login", command=lambda: login(s_id.get(), password.get())).pack(pady=10)
+
+    def login(s_id, password):
+        data = read_json("./data/students.json")
+        if s_id not in data.keys():
+            tk.messagebox.showerror("Error", "Invalid ID or Password")
+            return
+        if data[s_id]["password"] == password:
+            win.destroy()
+            panel(root, s_id)
+        else:
+            tk.messagebox.showerror("Error", "Invalid ID or Password")
+
+    win.protocol(
+        "WM_DELETE_WINDOW",
+        lambda: (win.destroy(), root.deiconify())
+    )
 
 def register_form(root):
     root.withdraw()
@@ -41,9 +67,12 @@ def register_form(root):
             "name": name.get(),
             "age": int(age.get()),
             "phone": phone.get(),
-            "password": password.get()
+            "password": password.get(),
+            "courses": []
         }
-        append_student(get_last_id(), data)
+        last_id = get_last_id()
+        append_student(last_id, data)
+        tk.messagebox.showinfo("Success", "Account created successfully\n---!note your ID!---\nID: " + str(last_id))
         win.destroy()
         root.deiconify()
 
