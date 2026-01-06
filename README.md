@@ -1,10 +1,3 @@
-Perfect 👍
-Here’s a **clean, simple, but professional README** that matches the level of your project and explanations.
-
-You can copy-paste this directly into `README.md`.
-
----
-
 # 🎓 Course Selection App (Tkinter)
 
 A simple desktop application built with **Python & Tkinter** that allows students to register, log in, and select courses.
@@ -103,15 +96,3 @@ python app.py
 * Error handling for empty selections
 
 ---
-
-## 👨‍💻 Author
-
-Built as a learning project using **Python & Tkinter**.
-
----
-
-If you want, next we can:
-
-* Tighten this for **GitHub quality**
-* Add screenshots section
-* Or refactor the project slightly like a real-world app 😏
