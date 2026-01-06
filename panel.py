@@ -35,6 +35,9 @@ def panel(root, s_id):
     course_list.insert(2, "english")
     course_list.insert(3, "physics")
     course_list.insert(4, "chemistry")
+    course_list.insert(5, "history")
+    course_list.insert(6, "biology")
+    course_list.insert(7, "geography")
     course_list.grid(row=1, column=0, padx=10, pady=10)
 
     # Selected courses list (loaded from saved data)
